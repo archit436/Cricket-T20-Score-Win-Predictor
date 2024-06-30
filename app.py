@@ -3,7 +3,7 @@ import streamlit as st
 import pickle
 import pandas as pd
 import numpy as np
-import xgboost as xgb
+import xgboost
 from xgboost import XGBRegressor
 
 # Import the ML model pipeline created under model_deployment.
