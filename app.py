@@ -7,7 +7,7 @@ import xgboost
 from xgboost import XGBRegressor
 
 # Import the ML model pipeline created under model_deployment.
-pipe = pickle.load(open('pipe.pkl', 'rb'))
+pipe = pickle.load(open('pipe_first_innings.pkl', 'rb'))
 
 # Define a list containing all team values.
 teams = ['Australia',
