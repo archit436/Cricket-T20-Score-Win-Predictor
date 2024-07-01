@@ -69,6 +69,13 @@ with col1:
 with col2:
     bowling_team = st.selectbox('Select bowling team', sorted(teams))
 
+# Validate that the bowling and batting team are unique.
+is_error = batting_team == bowling_team
+
+# Display a message if there is an error in the team entry.
+if is_error:
+    st.error("The bowling team cannot be the same as the batting team.")
+
 # Selection of Venue.
 city = st.selectbox('Select city', sorted(cities))
 
@@ -86,7 +93,7 @@ with col5:
 last_five = st.number_input('Runs scored in the last 5 overs', step=1, min_value=0)
 
 # Now we program the Predict Score button to use our trained model.
-if st.button('Predict Score'):
+if st.button('Predict Score', disabled=is_error):
     # Computation for entry to the model.
     balls_left = 120 - (overs*6)
     wickets_left = 10 - wickets
