@@ -76,14 +76,14 @@ city = st.selectbox('Select city', sorted(cities))
 col3, col4, col5 = st.columns(3)
 
 with col3:
-    current_score = st.number_input('Current Score', format="%d")
+    current_score = st.number_input('Current Score', step=1)
 with col4:
     overs = st.number_input('Overs', min_value=5, max_value=20)
 with col5:
     wickets = st.number_input('Wickets', min_value=0, max_value=10)
 
 # Last five overs runs scored.
-last_five = st.number_input('Runs scored in the last 5 overs', format="%d")
+last_five = st.number_input('Runs scored in the last 5 overs', step=1)
 
 # Now we program the Predict Score button to use our trained model.
 if st.button('Predict Score'):
