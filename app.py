@@ -83,9 +83,9 @@ with tab1:
     col1, col2 = st.columns(2)
 
     with col1:
-        batting_team = st.selectbox('Select batting team', sorted(teams))
+        batting_team = st.selectbox('Select batting team', sorted(teams), key=1)
     with col2:
-        bowling_team = st.selectbox('Select bowling team', sorted(teams))
+        bowling_team = st.selectbox('Select bowling team', sorted(teams), key=2)
 
     # Validate that the bowling and batting team are unique.
     is_error = batting_team == bowling_team
@@ -95,7 +95,7 @@ with tab1:
         st.error("The bowling team cannot be the same as the batting team.")
 
     # Selection of Venue.
-    city = st.selectbox('Select city', sorted(cities))
+    city = st.selectbox('Select city', sorted(cities), key=3)
 
     # Input of current score, overs done, wickets out.
     col3, col4, col5 = st.columns(3)
@@ -138,10 +138,11 @@ with tab2:
     # We first design drop down list for team selection.
     col6, col7 = st.columns(2)
 
+    # The keys have been entered to help streamlit differentiate between similar widgets.
     with col6:
-        batting_team = st.selectbox('Select batting team', sorted(teams))
+        batting_team = st.selectbox('Select batting team', sorted(teams), key=6)
     with col7:
-        bowling_team = st.selectbox('Select bowling team', sorted(teams))
+        bowling_team = st.selectbox('Select bowling team', sorted(teams), key=7)
 
     # Validate that the bowling and batting team are unique.
     is_error = batting_team == bowling_team
