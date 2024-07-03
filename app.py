@@ -134,7 +134,7 @@ with tab1:
         st.header("Predicted Score - " + str(int(result[0])))
 
 with tab2:
-    st.header("Win Predictor")
+    st.write("Fill out the following fields to get a win probability for the batting team.")
     # We first design drop down list for team selection.
     col6, col7 = st.columns(2)
 
