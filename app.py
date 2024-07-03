@@ -69,7 +69,7 @@ cities = ['Manchester',
           'Hamilton']
 
 # Define a title for the webapp.
-st.title('T20 Cricket Predictor')
+st.title('T20 Cricket Score & Win Predictor')
 
 # We make two tabs - 1st innings and 2nd innings.
 # For 1st innings, we want to predict the score.
@@ -78,7 +78,7 @@ tab1, tab2 = st.tabs(["1st Innings", "2nd Innings"])
 
 # Set up the Score Predictor for 1st Innings.
 with tab1:
-    st.header("Score Predictor")
+    st.write("Fill out the following fields to get a predicted score for the bating team.")
     # We first design drop down list for team selection.
     col1, col2 = st.columns(2)
 
@@ -136,11 +136,11 @@ with tab1:
 with tab2:
     st.header("Win Predictor")
     # We first design drop down list for team selection.
-    col1, col2 = st.columns(2)
+    col6, col7 = st.columns(2)
 
-    with col1:
+    with col6:
         batting_team = st.selectbox('Select batting team', sorted(teams))
-    with col2:
+    with col7:
         bowling_team = st.selectbox('Select bowling team', sorted(teams))
 
     # Validate that the bowling and batting team are unique.
@@ -150,18 +150,18 @@ with tab2:
     if is_error:
         st.error("The bowling team cannot be the same as the batting team.")
 
-    # Selection of Venue.
-    city = st.selectbox('Select city', sorted(cities))
-
-    # Input of current score, overs done, wickets out.
-    col3, col4, col5 = st.columns(3)
-
-    with col3:
-        current_score = st.number_input('Current Score', step=1, min_value=0)
-    with col4:
-        overs = st.number_input('Overs', min_value=5, max_value=20)
-    with col5:
-        wickets = st.number_input('Wickets', min_value=0, max_value=10)
-
-    # Last five overs runs scored.
-    last_five = st.number_input('Runs scored in the last 5 overs', step=1, min_value=0)
+    # # Selection of Venue.
+    # city = st.selectbox('Select city', sorted(cities))
+    #
+    # # Input of current score, overs done, wickets out.
+    # col3, col4, col5 = st.columns(3)
+    #
+    # with col3:
+    #     current_score = st.number_input('Current Score', step=1, min_value=0)
+    # with col4:
+    #     overs = st.number_input('Overs', min_value=5, max_value=20)
+    # with col5:
+    #     wickets = st.number_input('Wickets', min_value=0, max_value=10)
+    #
+    # # Last five overs runs scored.
+    # last_five = st.number_input('Runs scored in the last 5 overs', step=1, min_value=0)
