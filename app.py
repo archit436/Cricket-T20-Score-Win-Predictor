@@ -98,17 +98,17 @@ with tab1:
     city = st.selectbox('Select city', sorted(cities), key=3)
 
     # Input of current score, overs done, wickets out.
-    col3, col4, col5 = st.columns(3)
+    col4, col5, col6 = st.columns(3)
 
-    with col3:
-        current_score = st.number_input('Current Score', step=1, min_value=0)
     with col4:
-        overs = st.number_input('Overs', min_value=5, max_value=20)
+        current_score = st.number_input('Current Score', step=1, min_value=0, key=4)
     with col5:
-        wickets = st.number_input('Wickets', min_value=0, max_value=10)
+        overs = st.number_input('Overs', min_value=5, max_value=20, key=5)
+    with col6:
+        wickets = st.number_input('Wickets', min_value=0, max_value=10, key=6)
 
     # Last five overs runs scored.
-    last_five = st.number_input('Runs scored in the last 5 overs', step=1, min_value=0)
+    last_five = st.number_input('Runs scored in the last 5 overs', step=1, min_value=0, key=7)
 
     # Now we program the Predict Score button to use our trained model.
     if st.button('Predict Score', disabled=is_error):
@@ -136,13 +136,13 @@ with tab1:
 with tab2:
     st.write("Fill out the following fields to get a win probability for the batting team.")
     # We first design drop down list for team selection.
-    col6, col7 = st.columns(2)
+    col8, col9 = st.columns(2)
 
     # The keys have been entered to help streamlit differentiate between similar widgets.
-    with col6:
-        batting_team = st.selectbox('Select batting team', sorted(teams), key=6)
-    with col7:
-        bowling_team = st.selectbox('Select bowling team', sorted(teams), key=7)
+    with col8:
+        batting_team = st.selectbox('Select batting team', sorted(teams), key=8)
+    with col9:
+        bowling_team = st.selectbox('Select bowling team', sorted(teams), key=9)
 
     # Validate that the bowling and batting team are unique.
     is_error = batting_team == bowling_team
@@ -152,17 +152,22 @@ with tab2:
         st.error("The bowling team cannot be the same as the batting team.")
 
     # Selection of Venue.
-    city = st.selectbox('Select city', sorted(cities), key=8)
+    city = st.selectbox('Select city', sorted(cities), key=10)
 
     # Input of current score, overs done, wickets out.
-    col8, col9, col10 = st.columns(3)
+    col11, col12, col13 = st.columns(3)
 
-    with col8:
-        current_score = st.number_input('Current Score', step=1, min_value=0, key=8)
-    with col9:
-        overs = st.number_input('Overs', min_value=5, max_value=20, key=9)
-    with col10:
-        wickets = st.number_input('Wickets', min_value=0, max_value=10, key=10)
+    with col11:
+        current_score = st.number_input('Current Score', step=1, min_value=0, key=11)
+    with col12:
+        overs = st.number_input('Overs', min_value=5, max_value=20, key=12)
+    with col13:
+        wickets = st.number_input('Wickets', min_value=0, max_value=10, key=13)
 
-    # # Last five overs runs scored.
-    # last_five = st.number_input('Runs scored in the last 5 overs', step=1, min_value=0)
+    # Last five overs and target score.
+    col14, col15 = st.columns(2)
+
+    with col14:
+        last_five = st.number_input('Runs scored in the last 5 overs', step=1, min_value=0, key=14)
+    with col15:
+        target_score = st.number_input('Target Score', step=1, min_value=0, key=15)
