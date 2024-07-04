@@ -195,4 +195,4 @@ with tab2:
 
         # Output the predicted score.
         # st.header("Predicted Win - " + str(int(result[0])))
-        st.header(str(result[0][0]*100))
+        st.header("Win Prediction - " + batting_team + ": " + str(result[0][0]*100) + "%")
