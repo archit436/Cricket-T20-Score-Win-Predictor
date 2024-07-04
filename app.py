@@ -191,8 +191,8 @@ with tab2:
                                  'target_score': [target_score]})
 
         # Use the model to make a prediction on the input
-        result = pipe2.predict(input_df)
+        result = pipe2.predict_proba(input_df)
 
         # Output the predicted score.
         # st.header("Predicted Win - " + str(int(result[0])))
-        st.header("Win Probability - ", batting_team, ": ", int(result[0])*100)
+        st.header("Win Probability - ", batting_team, ": ", result[0][0]*100, "%")
