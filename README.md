@@ -1,5 +1,8 @@
 **1. Introduction**
 
-Watching the T20 Cricket World Cup in 2024, I noticed that projected scores and win percentages were flashed sporadically across the scoreboard throughout the match. This gave me the idea to design my own tool that functions on-demand to provide the match viewers with a data-backed projection of the current state of the match and where it is headed. A cricket game, as is the case in any sport, has an immense number of factors that can affect the outcome of a match and our human minds can only remember and make computations within certain bounds. This tool deployed as a WebApp aims to solve that.
+The outcome of a cricket game, like in many other sports, is impacted by an immense number of factors. This means that the best chance of predicting the state of a match and where it is headed is by using a data-backed approach. And that is the motivation behind this project. I have trained and tuned a Regression and Classification Model on match data of 1,400 cricket matches of the T20 format, to predict, depending on the innings of the game, the projected score or the win probability percentages for that game.
 
-The WebApp can be accessed here: https://cricket-t20-score-predictor.streamlit.app/. The application takes in data input from the user, and depending on the innings of the match, outputs a projected score or win percentage. The computations are handled by **two separately trained and tuned Regression and Classification models**. Some of the design choices in this project have been influenced by the work of @campusx-official. Additionally, the dataset used for the training of these models can be accessed here: https://www.kaggle.com/datasets/veeralakrishna/cricsheet-a-retrosheet-for-cricket. 
+* The WebApp hosted on streamlit can be accessed here: https://cricket-t20-score-predictor.streamlit.app/ <br>
+* The dataset used for the training of my models can be accessed here: https://www.kaggle.com/datasets/veeralakrishna/cricsheet-a-retrosheet-for-cricket
+* Some of the design choices in this project have been influenced by the work of @campusx-official.
+
