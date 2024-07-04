@@ -78,7 +78,7 @@ tab1, tab2 = st.tabs(["1st Innings", "2nd Innings"])
 
 # Set up the Score Predictor for 1st Innings.
 with tab1:
-    st.write("Fill out the following fields to get a predicted score for the bating team.")
+    st.write("Fill out the following fields to get a predicted score for the batting team.")
     # We first design drop down list for team selection.
     col1, col2 = st.columns(2)
 
@@ -134,7 +134,7 @@ with tab1:
         st.header("Predicted Score - " + str(int(result[0])))
 
 with tab2:
-    st.write("Fill out the following fields to get a win probability for the batting team.")
+    st.write("Fill out the following fields to get a win probability for both teams.")
     # We first design drop down list for team selection.
     col8, col9 = st.columns(2)
 
@@ -171,3 +171,28 @@ with tab2:
         last_five = st.number_input('Runs scored in the last 5 overs', step=1, min_value=0, key=14)
     with col15:
         target_score = st.number_input('Target Score', step=1, min_value=0, key=15)
+
+    # Now we program the Predict Win button to use our model to generate values.
+    if st.button('Predict Win', disabled=is_error):
+        # Computation for entry to the model.
+        balls_left = 120 - (overs * 6)
+        wickets_left = 10 - wickets
+        crr = current_score / overs
+
+        # Define a DataFrame for the input.
+        input_df = pd.DataFrame({'batting_team': [batting_team],
+                                 'bowling_team': [bowling_team],
+                                 'city': [city],
+                                 'current_score': [current_score],
+                                 'balls_left': [balls_left],
+                                 'wickets_left': [wickets_left],
+                                 'crr': [crr],
+                                 'last_five': [last_five],
+                                 'target_score': [target_score]})
+
+        # Use the model to make a prediction on the input
+        result = pipe2.predict(input_df)
+
+        # Output the predicted score.
+        # st.header("Predicted Win - " + str(int(result[0])))
+        st.header("Win Probability - ", batting_team, ": ", int(result[0])*100)
